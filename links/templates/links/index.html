@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Home Page{% endblock page_title %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'links/index.css' %}">
+{% endblock css %}
+
+{% block content %}
+  <h1 class="heading-1">Link shortener</h1>
+  <ul id="links-container">
+    {% for link in links %}
+    <li>
+      <div class="link-container">
+        <h2>{{ link.name }}</h2>
+        <p>URL: {{ link.url }}</p>
+        <p>Clicks: {{ link.clicks }}</p>
+        <button type="submit"><a href="{% url 'link-page' link.slug %}" target="_blank">Visit Page</a></button>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Create Link{% endblock page_title %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'links/create-link.css' %}">
+{% endblock css %}
+
+{% block nav_link %}
+  <a href="{% url 'home' %}">All Links</a>
+{% endblock nav_link %}
+
+{% block content %}
+  <h1 class="heading-1">Create link here</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Create</button>
+  </form>
+{% endblock content %}
